@@ -5,6 +5,8 @@
 #include "minhash.h"
 #include "xxHash/xxhash.c"
 
+extern "C" {
+
 Min minhash (char *s, int k, int seed) {
   int i = 0;
   Min m;
@@ -85,4 +87,6 @@ int main(int argc, char *argv[]) {
   printf("RC Min hash value: %u\n", m.hash);
   printf("RC Min hash pos: %u\n", m.pos);
   return 0;
+}
+
 }
