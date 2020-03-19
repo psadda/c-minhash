@@ -3,7 +3,7 @@
 
 extern "C" {
   
-static PyObject* minhash_wrapper(PyObject * self, PyObject * args) {
+static PyObject* minhash_wrapper(PyObject* self, PyObject* args) {
   char* s;
   unsigned int k;
   unsigned int seed;
