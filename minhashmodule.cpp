@@ -1,6 +1,8 @@
 #include "minhash.h"
 #include <Python.h>
 
+extern "C" {
+  
 static PyObject* minhash_wrapper(PyObject * self, PyObject * args) {
   char* s;
   unsigned int k;
@@ -29,4 +31,6 @@ static PyMethodDef MinHashMethods[] = {
 
 DL_EXPORT(void) initminhash(void) {
   Py_InitModule("minhash", MinHashMethods);
+}
+
 }
