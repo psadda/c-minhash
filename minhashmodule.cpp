@@ -42,7 +42,7 @@ static struct PyModuleDef ModuleDef = {
 };
 
 PyMODINIT_FUNC PyInit_minhash(void) {
-  PyModule_Create(&ModuleDef);
+  return PyModule_Create(&ModuleDef);
 }
 
 }
