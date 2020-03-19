@@ -13,7 +13,7 @@ Min minhash (char *s, int k, int seed) {
   m.hash = UINT32_MAX;
   m.pos = 0;
   int slen = strlen(s);
-  char kmer[k];
+  char* kmer = new char[k];
   for(; i < slen-k; i++) {
     memcpy(kmer, &s[i], k); // get k-mer as a substring of s
     uint32_t hsh = XXH32(kmer, k, seed);
