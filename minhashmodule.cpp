@@ -24,13 +24,25 @@ static PyObject* minhash_wrapper(PyObject * self, PyObject * args) {
   return ret;
 }
 
-static PyMethodDef MinHashMethods[] = {
+static PyMethodDef ModuleFunctions[] = {
   { "minhash", minhash_wrapper, METH_VARARGS, "MinHash" },
   { NULL, NULL, 0, NULL }
 };
+  
+static struct PyModuleDef ModuleDef = {
+  PyModuleDef_HEAD_INIT,
+  "minhash",           /* m_name */
+  NULL,                /* m_doc */
+  -1,                  /* m_size */
+  ModuleFunctions,     /* m_methods */
+  NULL,                /* m_reload */
+  NULL,                /* m_traverse */
+  NULL,                /* m_clear */
+  NULL,                /* m_free */
+};
 
-DL_EXPORT(void) initminhash(void) {
-  Py_InitModule("minhash", MinHashMethods);
+PyMODINIT_FUNC PyInit_minhash(void) {
+  PyModule_Create(&ModuleDef);
 }
 
 }
